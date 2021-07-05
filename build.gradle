@@ -1,0 +1,42 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.20'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.20'
+}
+
+group = 'me.matthew'
+archivesBaseName = 'reeva-mfbt'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.20'
+
+    testImplementation 'org.junit.platform:junit-platform-runner:1.7.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testImplementation 'org.junit.platform:junit-platform-suite-api:1.7.2'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5:1.5.20'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += '-Xopt-in=kotlin.RequiresOptIn'
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += '-Xopt-in=kotlin.RequiresOptIn'
+    }
+}
