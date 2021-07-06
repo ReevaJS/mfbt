@@ -27,6 +27,7 @@
 
 package me.mattco.reeva.mfbt
 
+import me.mattco.reeva.mfbt.impl.DiyFp
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

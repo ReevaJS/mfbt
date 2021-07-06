@@ -1,4 +1,4 @@
-package me.mattco.reeva.mfbt
+package me.mattco.reeva.mfbt.impl
 
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
