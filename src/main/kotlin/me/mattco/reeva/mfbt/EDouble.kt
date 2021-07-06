@@ -58,11 +58,11 @@ class EDouble(val value: ULong) {
 
     fun isSpecial() = (value and EXPONENT_MASK) == EXPONENT_MASK
 
-    fun isNan() = isSpecial() && (value and SIGNIFICAND_MASK) != 0UL
+    fun isNaN() = isSpecial() && (value and SIGNIFICAND_MASK) != 0UL
 
-    fun isQuietNan() = isNan() && (value and QUIET_NAN_BIT) != 0UL
+    fun isQuietNaN() = isNaN() && (value and QUIET_NAN_BIT) != 0UL
 
-    fun isSignalingNan() = isNan() && (value and QUIET_NAN_BIT) == 0UL
+    fun isSignalingNaN() = isNaN() && (value and QUIET_NAN_BIT) == 0UL
 
     fun isInfinite() = isSpecial() && (value and SIGNIFICAND_MASK) == 0UL
 

@@ -58,11 +58,11 @@ class ESingle(val value: UInt) {
 
     fun isSpecial() = (value and EXPONENT_MASK) == EXPONENT_MASK
 
-    fun isNan() = isSpecial() && (value and SIGNIFICAND_MASK) != 0U
+    fun isNaN() = isSpecial() && (value and SIGNIFICAND_MASK) != 0U
 
-    fun isQuietNan() = isNan() && (value and QUIET_NAN_BIT) != 0U
+    fun isQuietNaN() = isNaN() && (value and QUIET_NAN_BIT) != 0U
 
-    fun isSignalingNan() = isNan() && (value and QUIET_NAN_BIT) == 0U
+    fun isSignalingNan() = isNaN() && (value and QUIET_NAN_BIT) == 0U
 
     fun isInfinite() = isSpecial() && (value and SIGNIFICAND_MASK) == 0U
 

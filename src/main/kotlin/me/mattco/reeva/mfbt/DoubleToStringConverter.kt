@@ -180,7 +180,7 @@ object DoubleToStringConverter {
             return true
         }
 
-        if (doubleInspect.isNan()) {
+        if (doubleInspect.isNaN()) {
             builder.append(NAN_SYMBOL)
             return true
         }
