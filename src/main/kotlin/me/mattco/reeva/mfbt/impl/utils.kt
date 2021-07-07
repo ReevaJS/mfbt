@@ -45,3 +45,5 @@ class Ref<T> {
     }
 }
 
+fun StringBuilder.ensureSize(n: Int) = repeat(n - length) { append('?') }
+

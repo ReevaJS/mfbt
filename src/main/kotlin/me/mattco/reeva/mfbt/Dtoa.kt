@@ -228,11 +228,8 @@ object Dtoa {
                 fastDtoa(value, FastDtoaMode.Precision, requestedDigits, buffer, point)
         }
 
-        if (worked)
-            return
-
-        // Requires Bignum
-        TODO()
+        if (!worked)
+            bignumDtoa(value, mode, requestedDigits, buffer, point)
     }
 
     private fun StringBuilder.appendRepeated(char: Char, times: Int) {//
@@ -311,7 +308,7 @@ object Dtoa {
         resultBuilder.append(exponentBuilder.toString().drop(firstCharPos))
     }
 
-    internal enum class Mode {
+    enum class Mode {
         Shortest,
         ShortestSingle,
         Precision,

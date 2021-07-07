@@ -309,11 +309,30 @@ fun grisu3(
     return result
 }
 
+fun printBits(num: Double) {
+    printBits(java.lang.Double.doubleToRawLongBits(num).toULong())
+}
+
+fun printBits(num: Float) {
+    printBits(java.lang.Float.floatToRawIntBits(num).toUInt())
+}
+
 fun printBits(num_: ULong) {
     var num = num_
     val maxPow = 1UL shl 63
     for (i in 0..63) {
         val b = (num and maxPow) != 0UL
+        print(if (b) '1' else '0')
+        num = num shl 1
+    }
+    println()
+}
+
+fun printBits(num_: UInt) {
+    var num = num_
+    val maxPow = 1U shl 31
+    for (i in 0..31) {
+        val b = (num and maxPow) != 0U
         print(if (b) '1' else '0')
         num = num shl 1
     }

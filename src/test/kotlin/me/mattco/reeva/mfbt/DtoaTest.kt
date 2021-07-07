@@ -27,10 +27,7 @@
 
 package me.mattco.reeva.mfbt
 
-import me.mattco.reeva.mfbt.impl.EDouble
-import me.mattco.reeva.mfbt.impl.ESingle
-import me.mattco.reeva.mfbt.impl.Ref
-import me.mattco.reeva.mfbt.impl.printBits
+import me.mattco.reeva.mfbt.impl.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -67,9 +64,6 @@ class DtoaTest {
         val largestDenormal64 = EDouble(0x000FFFFFFFFFFFFFUL).value()
         val largestDenormal32 = ESingle(0x007FFFFFU).value()
 
-
-        // The commented-out tests are tests that require bignum, which isn't implemented yet
-
         doTest(0.0, Dtoa.Mode.Shortest, 0, "0", 1)
         doTest(0.0, Dtoa.Mode.ShortestSingle, 0, "0", 1)
         doTest(0.0, Dtoa.Mode.Fixed, 2, "0", 1)
@@ -81,7 +75,7 @@ class DtoaTest {
         doTest(1.5, Dtoa.Mode.Shortest, 0, "15", 1)
         doTest(1.5, Dtoa.Mode.ShortestSingle, 0, "15", 1)
         doTest(1.5, Dtoa.Mode.Fixed, 10, "15", 1, trim = true)
-        // doTest(1.5, Dtoa.Mode.Precision, 10, "15", 1, trim = true)
+        doTest(1.5, Dtoa.Mode.Precision, 10, "15", 1, trim = true)
         doTest(minDouble, Dtoa.Mode.Shortest, 0, "5", -323)
         doTest(minFloat, Dtoa.Mode.ShortestSingle, 0, "1", -44)
         doTest(minDouble, Dtoa.Mode.Fixed, 5, "", -5)
@@ -92,28 +86,28 @@ class DtoaTest {
         doTest(4294967272.0, Dtoa.Mode.Shortest, 0, "4294967272", 10)
         doTest(4294967272.0f.toDouble(), Dtoa.Mode.ShortestSingle, 0, "42949673", 10)
         doTest(4294967272.0, Dtoa.Mode.Fixed, 5, "4294967272", 10, trim = true)
-        // doTest(4294967272.0, Dtoa.Mode.Precision, 14, "4294967272", 10, trim = true)
+        doTest(4294967272.0, Dtoa.Mode.Precision, 14, "4294967272", 10, trim = true)
         doTest(4.1855804968213567e298, Dtoa.Mode.Shortest, 0, "4185580496821357", 299)
-        // doTest(4.1855804968213567e298, Dtoa.Mode.Precision, 20, "41855804968213567225", 299)
+        doTest(4.1855804968213567e298, Dtoa.Mode.Precision, 20, "41855804968213567225", 299)
         doTest(5.5626846462680035e-309, Dtoa.Mode.Shortest, 0, "5562684646268003", -308)
         doTest(5.5626846462680035e-309, Dtoa.Mode.Precision, 1, "6", -308, trim = true)
         doTest(-2147483648.0, Dtoa.Mode.Shortest, 0, "2147483648", 10)
         doTest(-2147483648.0f.toDouble(), Dtoa.Mode.ShortestSingle, 0, "21474836", 10)
         doTest(-2147483648.0, Dtoa.Mode.Fixed, 2, "2147483648", 10, trim = true)
         doTest(-2147483648.0, Dtoa.Mode.Precision, 5, "21475", 10)
-        // doTest(-3.5844466002796428e+298, Dtoa.Mode.Shortest, 0, "35844466002796428", 299)
+        doTest(-3.5844466002796428e+298, Dtoa.Mode.Shortest, 0, "35844466002796428", 299)
         doTest(-3.5844466002796428e+298, Dtoa.Mode.Precision, 10, "35844466", 299, trim = true)
         doTest(smallestNormal64, Dtoa.Mode.Shortest, 0, "22250738585072014", -307)
         doTest(smallestNormal32.toDouble(), Dtoa.Mode.ShortestSingle, 0, "11754944", -37)
-        // doTest(smallestNormal64, Dtoa.Mode.Precision, 20, "22250738585072013831", -307)
+        doTest(smallestNormal64, Dtoa.Mode.Precision, 20, "22250738585072013831", -307)
         doTest(largestDenormal64, Dtoa.Mode.Shortest, 0, "2225073858507201", -307)
         doTest(largestDenormal32.toDouble(), Dtoa.Mode.ShortestSingle, 0, "11754942", -37)
-        // doTest(largestDenormal64, Dtoa.Mode.Precision, 20, "2225073858507200889", -307)
-        // doTest(4128420500802942e-24, Dtoa.Mode.Shortest, 0, "4128420500802942", -8)
-        // doTest(-3.9292015898194142585311918e-10, Dtoa.Mode.Shortest, 0, "39292015898194143", -9)
+        doTest(largestDenormal64, Dtoa.Mode.Precision, 20, "2225073858507200889", -307, trim = true)
+        doTest(4128420500802942e-24, Dtoa.Mode.Shortest, 0, "4128420500802942", -8)
+        doTest(-3.9292015898194142585311918e-10, Dtoa.Mode.Shortest, 0, "39292015898194143", -9)
         doTest((-3.9292015898194142585311918e-10f).toDouble(), Dtoa.Mode.ShortestSingle, 0, "39292017", -9)
         doTest(4194304.0, Dtoa.Mode.Fixed, 5, "4194304", 7)
-        // doTest(3.3161339052167390562200598e-237, Dtoa.Mode.Precision, 19, "3316133905216739056", -236)
+        doTest(3.3161339052167390562200598e-237, Dtoa.Mode.Precision, 19, "3316133905216739056", -236)
     }
 
     private fun trimRepresentation(representation: StringBuilder) {
