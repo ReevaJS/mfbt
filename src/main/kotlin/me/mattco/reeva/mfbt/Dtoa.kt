@@ -102,7 +102,7 @@ object Dtoa {
             expect(decimalRep.length <= requestedDigits + 1)
 
             for (i in decimalRep.length..requestedDigits)
-                decimalRep[i] = '0'
+                decimalRep.append('0')
         }
 
         if (sign.get() && value != 0.0)
@@ -261,7 +261,7 @@ object Dtoa {
             }
         } else {
             expect(digitsAfterPoint > 0)
-            resultBuilder.append(decimalDigits.drop(decimalPoint))
+            resultBuilder.append(decimalDigits.take(decimalPoint))
             resultBuilder.append('.')
             expect(decimalDigits.length - decimalPoint <= digitsAfterPoint)
             resultBuilder.append(decimalDigits.substring(decimalPoint))
