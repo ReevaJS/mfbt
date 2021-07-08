@@ -1,8 +1,9 @@
 package me.mattco.reeva.mfbt
 
 import me.mattco.reeva.mfbt.impl.Ref
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import strikt.api.expect
+import strikt.assertions.isEqualTo
 
 class BignumDtoaTest {
     @Test
@@ -23,11 +24,11 @@ class BignumDtoaTest {
             Dtoa.doubleToAscii(v, mode, requestedDigits, buffer, sign, point)
             if (trim)
                 trimRepresentation(buffer)
-            Assertions.assertEquals(sign.get(), v < 0.0)
-            Assertions.assertEquals(expectedString, buffer.toString())
-            Assertions.assertEquals(expectedPoint, point.get())
-
-
+            expect {
+                that(sign.get()).isEqualTo(v < 0.0)
+                that(expectedString).isEqualTo(buffer.toString())
+                that(expectedPoint).isEqualTo(point.get())
+            }
         }
     }
 

@@ -28,8 +28,10 @@
 package me.mattco.reeva.mfbt
 
 import me.mattco.reeva.mfbt.impl.DiyFp
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import strikt.api.expect
+import strikt.api.expectThat
+import strikt.assertions.isEqualTo
 
 class DiyFpTest {
     @Test
@@ -38,11 +40,15 @@ class DiyFpTest {
         val diyFp2 = DiyFp(1UL, 0)
         val diff = diyFp1 - diyFp2
 
-        Assertions.assertEquals(diff.significand, 2UL)
-        Assertions.assertEquals(diff.exponent, 0)
+        expect {
+            that(diff.significand).isEqualTo(2UL)
+            that(diff.exponent).isEqualTo(0)
+        }
         diyFp1 -= diyFp2
-        Assertions.assertEquals(diyFp1.significand, 2UL)
-        Assertions.assertEquals(diyFp1.exponent, 0)
+        expect {
+            that(diyFp1.significand).isEqualTo(2UL)
+            that(diyFp1.exponent).isEqualTo(0)
+        }
     }
 
     @Test
@@ -51,34 +57,34 @@ class DiyFpTest {
         var diyFp2 = DiyFp(2UL, 0)
         var product = diyFp1 * diyFp2
 
-        Assertions.assertEquals(product.significand, 0UL)
-        Assertions.assertEquals(product.exponent, 64)
+        expectThat(product.significand).isEqualTo(0UL)
+        expectThat(product.exponent).isEqualTo(64)
         diyFp1 *= diyFp2
-        Assertions.assertEquals(diyFp1.significand, 0UL)
-        Assertions.assertEquals(diyFp1.exponent, 64)
+        expectThat(diyFp1.significand).isEqualTo(0UL)
+        expectThat(diyFp1.exponent).isEqualTo(64)
 
         diyFp1 = DiyFp(0x8000000000000000UL, 11)
         diyFp2 = DiyFp(2UL, 13)
         product = diyFp1 * diyFp2
-        Assertions.assertEquals(product.significand, 1UL)
-        Assertions.assertEquals(product.exponent, 64 + 13 + 11)
+        expectThat(product.significand).isEqualTo(1UL)
+        expectThat(product.exponent).isEqualTo(64 + 13 + 11)
 
         diyFp1 = DiyFp(0x8000000000000001UL, 11)
         diyFp2 = DiyFp(1UL, 13)
         product = diyFp1 * diyFp2
-        Assertions.assertEquals(product.significand, 1UL)
-        Assertions.assertEquals(product.exponent, 64 + 13 + 11)
+        expectThat(product.significand).isEqualTo(1UL)
+        expectThat(product.exponent).isEqualTo(64 + 13 + 11)
 
         diyFp1 = DiyFp(0x7fffffffffffffffUL, 11)
         diyFp2 = DiyFp(1UL, 13)
         product = diyFp1 * diyFp2
-        Assertions.assertEquals(product.significand, 0UL)
-        Assertions.assertEquals(product.exponent, 64 + 13 + 11)
+        expectThat(product.significand).isEqualTo(0UL)
+        expectThat(product.exponent).isEqualTo(64 + 13 + 11)
 
         diyFp1 = DiyFp(0xFFFFFFFFFFFFFFFFUL, 11)
         diyFp2 = DiyFp(0xFFFFFFFFFFFFFFFFUL, 13)
         product = diyFp1 * diyFp2
-        Assertions.assertEquals(product.significand, 0xFFFFFFFFFFFFFFFEUL)
-        Assertions.assertEquals(product.exponent, 64 + 13 + 11)
+        expectThat(product.significand).isEqualTo(0xFFFFFFFFFFFFFFFEUL)
+        expectThat(product.exponent).isEqualTo(64 + 13 + 11)
     }
 }

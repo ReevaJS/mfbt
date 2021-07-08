@@ -20,6 +20,7 @@ dependencies {
     testImplementation 'org.junit.platform:junit-platform-suite-api:1.7.2'
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5:1.5.20'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1'
+    testImplementation "io.strikt:strikt-core:0.31.0"
 
 }
 

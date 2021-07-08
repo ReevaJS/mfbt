@@ -6,8 +6,11 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import me.mattco.reeva.mfbt.impl.Ref
 import me.mattco.reeva.mfbt.impl.fastFixedDtoa
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import strikt.api.expectThat
+import strikt.assertions.isEqualTo
+import strikt.assertions.isGreaterThanOrEqualTo
+import strikt.assertions.isTrue
 
 class FixedDtoaTest {
     @Test
@@ -17,9 +20,9 @@ class FixedDtoaTest {
 
         fun doTest(v: Double, fractionalCount: Int, bufferResult: String, expectedPoint: Int) {
             buffer.clear()
-            Assertions.assertTrue(fastFixedDtoa(v, fractionalCount, buffer, point))
-            Assertions.assertEquals(bufferResult, buffer.toString())
-            Assertions.assertEquals(expectedPoint, point.get())
+            expectThat(fastFixedDtoa(v, fractionalCount, buffer, point)).isTrue()
+            expectThat(bufferResult).isEqualTo(buffer.toString())
+            expectThat(expectedPoint).isEqualTo(point.get())
         }
 
         doTest(1.0, 1, "1", 1)
@@ -155,10 +158,10 @@ class FixedDtoaTest {
             val builder = StringBuilder()
             val point = Ref<Int>()
             val status = fastFixedDtoa(value, numDigits, builder, point)
-            Assertions.assertTrue(status)
-            Assertions.assertEquals(decimalPoint, point.get())
-            Assertions.assertTrue(numDigits >= builder.length - point.get())
-            Assertions.assertEquals(representation, builder.toString())
+            expectThat(status).isTrue()
+            expectThat(decimalPoint).isEqualTo(point.get())
+            expectThat(numDigits).isGreaterThanOrEqualTo(builder.length - point.get())
+            expectThat(representation).isEqualTo(builder.toString())
         }
     }
 }

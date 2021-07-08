@@ -28,8 +28,9 @@
 package me.mattco.reeva.mfbt
 
 import me.mattco.reeva.mfbt.impl.*
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import strikt.api.expectThat
+import strikt.assertions.isEqualTo
 
 class DtoaTest {
     @Test
@@ -50,9 +51,9 @@ class DtoaTest {
             Dtoa.doubleToAscii(v, mode, requestedDigits, buffer, sign, point)
             if (trim)
                 trimRepresentation(buffer)
-            Assertions.assertEquals(sign.get(), v < 0.0)
-            Assertions.assertEquals(expectedString, buffer.toString())
-            Assertions.assertEquals(expectedPoint, point.get())
+            expectThat(sign.get()).isEqualTo(v < 0.0)
+            expectThat(expectedString).isEqualTo(buffer.toString())
+            expectThat(expectedPoint).isEqualTo(point.get())
         }
 
         val minDouble = 5e-324
