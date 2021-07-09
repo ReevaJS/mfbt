@@ -149,6 +149,12 @@ object Dtoa {
         return resultBuilder.toString()
     }
 
+    fun radixToString(value: Double, radix: Int): String? {
+        if (EDouble(value).isSpecial())
+            return handleSpecialValues(value)
+        return radixDtoa(value, radix)
+    }
+
     private fun toShortestIeeeNumber(value: Double, mode: Mode): String? {
         expect(mode == Mode.Shortest || mode == Mode.ShortestSingle)
 
