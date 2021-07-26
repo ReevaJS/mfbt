@@ -1,8 +1,8 @@
-package me.mattco.reeva.mfbt
+package com.reevajs.reeva.mfbt
 
-import me.mattco.reeva.mfbt.impl.EDouble
-import me.mattco.reeva.mfbt.impl.expect
-import me.mattco.reeva.mfbt.impl.unreachable
+import com.reevajs.reeva.mfbt.impl.EDouble
+import com.reevajs.reeva.mfbt.impl.expect
+import com.reevajs.reeva.mfbt.impl.unreachable
 import java.math.BigInteger
 
 class StringToFP(input: String) {

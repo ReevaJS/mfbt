@@ -25,9 +25,9 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package me.mattco.reeva.mfbt.impl
+package com.reevajs.reeva.mfbt.impl
 
-import me.mattco.reeva.mfbt.Dtoa
+import com.reevajs.reeva.mfbt.Dtoa
 import kotlin.math.ceil
 
 const val LOG_1_10 = 0.30102999566398114

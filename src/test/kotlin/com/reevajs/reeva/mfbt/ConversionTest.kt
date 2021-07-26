@@ -1,6 +1,6 @@
-package me.mattco.reeva.mfbt
+package com.reevajs.reeva.mfbt
 
-import me.mattco.reeva.mfbt.impl.EDouble
+import com.reevajs.reeva.mfbt.impl.EDouble
 import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.isA

@@ -25,9 +25,9 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package me.mattco.reeva.mfbt
+package com.reevajs.reeva.mfbt
 
-import me.mattco.reeva.mfbt.impl.*
+import com.reevajs.reeva.mfbt.impl.*
 import kotlin.math.max
 import kotlin.math.min
 

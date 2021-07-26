@@ -1,11 +1,11 @@
-package me.mattco.reeva.mfbt
+package com.reevajs.reeva.mfbt
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import me.mattco.reeva.mfbt.impl.Ref
-import me.mattco.reeva.mfbt.impl.fastFixedDtoa
+import com.reevajs.reeva.mfbt.impl.Ref
+import com.reevajs.reeva.mfbt.impl.fastFixedDtoa
 import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.isEqualTo

@@ -25,12 +25,12 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package me.mattco.reeva.mfbt
+package com.reevajs.reeva.mfbt
 
-import me.mattco.reeva.mfbt.impl.DiyFp
-import me.mattco.reeva.mfbt.impl.EDouble
-import me.mattco.reeva.mfbt.impl.ESingle
-import me.mattco.reeva.mfbt.impl.Ref
+import com.reevajs.reeva.mfbt.impl.DiyFp
+import com.reevajs.reeva.mfbt.impl.EDouble
+import com.reevajs.reeva.mfbt.impl.ESingle
+import com.reevajs.reeva.mfbt.impl.Ref
 import org.junit.jupiter.api.Test
 import strikt.api.expect
 import strikt.api.expectThat

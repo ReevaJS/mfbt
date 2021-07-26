@@ -25,14 +25,14 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package me.mattco.reeva.mfbt.impl
+package com.reevajs.reeva.mfbt.impl
 
-import me.mattco.reeva.mfbt.impl.EDouble.Companion.DENORMAL_EXPONENT
-import me.mattco.reeva.mfbt.impl.EDouble.Companion.EXPONENT_BIAS
-import me.mattco.reeva.mfbt.impl.EDouble.Companion.HIDDEN_BIT
-import me.mattco.reeva.mfbt.impl.EDouble.Companion.MAX_EXPONENT
-import me.mattco.reeva.mfbt.impl.EDouble.Companion.PHYSICAL_SIGNIFICAND_SIZE
-import me.mattco.reeva.mfbt.impl.EDouble.Companion.SIGNIFICAND_MASK
+import com.reevajs.reeva.mfbt.impl.EDouble.Companion.DENORMAL_EXPONENT
+import com.reevajs.reeva.mfbt.impl.EDouble.Companion.EXPONENT_BIAS
+import com.reevajs.reeva.mfbt.impl.EDouble.Companion.HIDDEN_BIT
+import com.reevajs.reeva.mfbt.impl.EDouble.Companion.MAX_EXPONENT
+import com.reevajs.reeva.mfbt.impl.EDouble.Companion.PHYSICAL_SIGNIFICAND_SIZE
+import com.reevajs.reeva.mfbt.impl.EDouble.Companion.SIGNIFICAND_MASK
 
 class DiyFp(var significand: ULong, var exponent: Int) {
     constructor() : this(0UL, 0)

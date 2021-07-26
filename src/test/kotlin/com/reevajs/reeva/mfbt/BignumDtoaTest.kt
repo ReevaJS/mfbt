@@ -1,6 +1,6 @@
-package me.mattco.reeva.mfbt
+package com.reevajs.reeva.mfbt
 
-import me.mattco.reeva.mfbt.impl.Ref
+import com.reevajs.reeva.mfbt.impl.Ref
 import org.junit.jupiter.api.Test
 import strikt.api.expect
 import strikt.assertions.isEqualTo

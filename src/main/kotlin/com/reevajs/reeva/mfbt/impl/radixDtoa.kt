@@ -1,4 +1,4 @@
-package me.mattco.reeva.mfbt.impl
+package com.reevajs.reeva.mfbt.impl
 
 import kotlin.math.floor
 import kotlin.math.max

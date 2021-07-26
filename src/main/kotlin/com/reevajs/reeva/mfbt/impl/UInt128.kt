@@ -25,7 +25,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-package me.mattco.reeva.mfbt.impl
+package com.reevajs.reeva.mfbt.impl
 
 class UInt128(private var highBits: ULong, private var lowBits: ULong) {
     constructor() : this(0UL, 0UL)
